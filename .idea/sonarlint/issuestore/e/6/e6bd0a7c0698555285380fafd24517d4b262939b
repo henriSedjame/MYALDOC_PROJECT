@@ -1,0 +1,3 @@
+
+Ь%squid:RedundantThrowsDeclarationCheck"aRemove the declaration of thrown exception 'org.json.JSONException' which is a runtime exception.(шнЪО∙    8тїЕ╨ ,
+Dsquid:S1148"#Use a logger to log this exception.(А╔╘Е¤    8тїЕ╨ ,
