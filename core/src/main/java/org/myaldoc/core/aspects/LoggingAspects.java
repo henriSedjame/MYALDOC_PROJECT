@@ -1,4 +1,4 @@
-package org.myaldoc.gestion.documents.service.aspects;
+package org.myaldoc.core.aspects;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -34,7 +34,7 @@ public class LoggingAspects {
         log.error(error.getMessage());
     }
 
-    @Pointcut("execution(public * org.myaldoc.gestion.documents.service.services.impl.*.*(..))")
+    @Pointcut("@target(org.myaldoc.core.annotations.LoggedService)")
     public void servicesPointCut() {
     }
 

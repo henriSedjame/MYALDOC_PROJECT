@@ -1,4 +1,4 @@
-package org.myaldoc.gestion.documents.service.security.confiduration;
+package org.myaldoc.security.core.configuration;
 
 /**
  * @Project Spring cloud test
@@ -15,7 +15,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 
 @Configuration
 @EnableResourceServer
-public class OAuth2SecurityConfig extends ResourceServerConfigurerAdapter {
+public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(final HttpSecurity http) throws Exception {

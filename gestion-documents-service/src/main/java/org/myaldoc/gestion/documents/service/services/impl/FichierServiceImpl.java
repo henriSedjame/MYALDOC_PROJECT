@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
+import reactor.core.publisher.Mono;
 
 import java.io.IOException;
 import java.util.Base64;
@@ -45,7 +46,7 @@ public class FichierServiceImpl implements GestionDocumentService {
      * @return
      */
     @Override
-    public Fichier sauvegarderFichier(MultipartFile file) throws IOException {
+    public Mono<Fichier> sauvegarderFichier(MultipartFile file) throws IOException {
         return this.fichierRepository.save(
                 Fichier.builder()
                     .name(StringUtils.cleanPath(Objects.requireNonNull(file.getOriginalFilename())))
@@ -62,8 +63,8 @@ public class FichierServiceImpl implements GestionDocumentService {
      * @return
      */
     @Override
-    public Fichier recupererFichier(String fichierId) {
-        return this.fichierRepository.findById(fichierId).orElseThrow();
+    public Mono<Fichier> recupererFichier(String fichierId) {
+        return this.fichierRepository.findById(fichierId);
     }
 
 }

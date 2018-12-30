@@ -2,12 +2,14 @@ package org.myaldoc.gestion.documents.service.controller;
 
 import org.myaldoc.gestion.documents.service.exceptions.GestionDocumentExceptionBuilder;
 import org.myaldoc.gestion.documents.service.exceptions.GestionDocumentExceptionMessages;
+import org.myaldoc.gestion.documents.service.models.Fichier;
 import org.myaldoc.gestion.documents.service.services.GestionDocumentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import reactor.core.publisher.Mono;
 
 import java.io.IOException;
 
@@ -48,7 +50,7 @@ public class GestionDocumentController {
         try {
             return ResponseEntity.ok()
                     .contentType(MediaType.APPLICATION_JSON)
-                    .body(this.fichierService.sauvegarderFichier(file));
+                    .body(this.fichierService.sauvegarderFichier(file).block());
         } catch (IOException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("");
@@ -58,7 +60,7 @@ public class GestionDocumentController {
     @GetMapping("/fichier/{fichierId}")
     public ResponseEntity<Object> recupererFichier(@PathVariable String fichierId){
         return ResponseEntity.ok()
-                .body(this.fichierService.recupererFichier(fichierId));
+                .body(this.fichierService.recupererFichier(fichierId).block());
     }
 
 }

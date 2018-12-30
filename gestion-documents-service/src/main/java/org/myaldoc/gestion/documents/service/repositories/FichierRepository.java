@@ -1,7 +1,7 @@
 package org.myaldoc.gestion.documents.service.repositories;
 
 import org.myaldoc.gestion.documents.service.models.Fichier;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 
 import java.util.Optional;
 
@@ -11,7 +11,6 @@ import java.util.Optional;
  * @Date 27/12/2018
  * @Class purposes : .......
  */
-public interface FichierRepository extends MongoRepository<Fichier, String> {
+public interface FichierRepository extends ReactiveMongoRepository<Fichier, String> {
 
-    Optional<Fichier> findById(String fichierId);
 }

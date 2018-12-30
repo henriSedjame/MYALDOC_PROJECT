@@ -1,4 +1,4 @@
-package org.myaldoc.gestion.documents.service.security.confiduration;
+package org.myaldoc.security.core.configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.access.expression.method.MethodSecurityExpressionHandler;
@@ -14,7 +14,7 @@ import org.springframework.security.oauth2.provider.expression.OAuth2MethodSecur
  */
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class MethodSecurityconfig extends GlobalMethodSecurityConfiguration {
+public class MethodSecurityConfiguration extends GlobalMethodSecurityConfiguration {
 
     @Override
     protected MethodSecurityExpressionHandler createExpressionHandler() {

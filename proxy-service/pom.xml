@@ -20,6 +20,7 @@
 
     <dependencies>
 
+        <!-- Myaldoc core-->
         <dependency>
             <groupId>org.myaldoc.project</groupId>
             <artifactId>core</artifactId>

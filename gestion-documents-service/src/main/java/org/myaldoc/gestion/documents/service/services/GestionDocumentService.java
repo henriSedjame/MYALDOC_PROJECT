@@ -2,6 +2,7 @@ package org.myaldoc.gestion.documents.service.services;
 
 import org.myaldoc.gestion.documents.service.models.Fichier;
 import org.springframework.web.multipart.MultipartFile;
+import reactor.core.publisher.Mono;
 
 import java.io.IOException;
 
@@ -18,13 +19,13 @@ public interface GestionDocumentService {
      * @param file
      * @return
      */
-    Fichier sauvegarderFichier(MultipartFile file) throws IOException;
+    Mono<Fichier> sauvegarderFichier(MultipartFile file) throws IOException;
 
     /**
      * RECUPERER FICHIER
      * @param fichierId
      * @return
      */
-    Fichier recupererFichier(String fichierId);
+    Mono<Fichier> recupererFichier(String fichierId);
 
 }
