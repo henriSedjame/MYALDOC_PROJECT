@@ -16,6 +16,12 @@ import java.util.Objects;
  */
 public class MajeurConstraintValidator implements ConstraintValidator<Majeur, ChronoLocalDate> {
 
+
+    @Override
+    public void initialize(Majeur constraintAnnotation) {
+
+    }
+
     public boolean isValid(ChronoLocalDate date, ConstraintValidatorContext context) {
 
         if (Objects.isNull(date)) return false;

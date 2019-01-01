@@ -1,0 +1,24 @@
+
+jwt :
+  properties :
+    secret : jk45dddkjhmLDKLel68dfjMdlkd4f8gfSD745gpopgjsMFvkvcl487cvDSLFDDVd5d34736qQKDjk45dddkjhmLDKLel68dfjMdlkd4f8gfSD745gpopgjsMFvkvcl487cvDSLFDDVd5d34736qQKDjk45dddkjhmLDKLel68dfjMdlkd4f8gfSD745gpopgjsMFvkvcl487cvDSLFDDVd5d34736qQKDv
+    expiration : 28800
+
+spring :
+  data:
+    mongodb:
+      port: 27017
+      database: TEST_SECURITY_CORE_DB
+      host: localhost
+
+error :
+  messages :
+    defaultMessage : Une erreur est survenue.
+    internalError : Une erreur technique s'est produite.
+    userNotFound : Aucun utilisateur avec le login {0} n'a été trouvé.
+    badCredentials : Identifiants incorrects.
+    userAlreadyExist : Le login {0} est déjà utilisé.
+    accountDeletionError : Une erreur est survenue lors de la suppression du compte ID {0}.
+    userRetrievingError : Une erreur est survenue lors de la récupération de l'utilisateur {0}.
+    userSavingError : Une erreur est survenue lors de la sauvegarde de l'utilisateur {0}.
+    userActivationError : Une erreur est survenue lors de l'activation du compte {0}.

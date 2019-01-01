@@ -11,6 +11,9 @@
         <module>core</module>
         <module>gestion-documents-service</module>
         <module>security-core</module>
+        <module>reactive-authentication-service</module>
+        <module>reactive-security-core</module>
+        <module>reactive-security-configuration</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -55,22 +58,22 @@
         </dependency>
 
         <!-- WebFlux -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
-        </dependency>
+        </dependency>-->
 
         <!-- Web -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+        </dependency>-->
 
         <!-- Spring mongoDB-->
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
-        </dependency>
+        </dependency>-->
 
         <!-- Lombok -->
         <dependency>
@@ -85,7 +88,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>

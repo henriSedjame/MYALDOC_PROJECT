@@ -23,13 +23,15 @@
           <entry name="$MAVEN_REPOSITORY$/org/springframework/spring-context/4.0.3.RELEASE/spring-context-4.0.3.RELEASE.jar" />
           <entry name="$MAVEN_REPOSITORY$/joda-time/joda-time/2.9/joda-time-2.9.jar" />
         </processorPath>
-        <module name="authentication-service" />
         <module name="configuration-service" />
         <module name="core" />
         <module name="eureka-service" />
         <module name="gestion-documents-service" />
         <module name="notification-service" />
         <module name="proxy-service" />
+        <module name="reactive-authentication-service" />
+        <module name="reactive-security-configuration" />
+        <module name="reactive-security-core" />
         <module name="security-core" />
       </profile>
     </annotationProcessing>
@@ -42,6 +44,9 @@
       <module name="MYALDOC_PROJECT" target="10" />
       <module name="notification-service" target="10" />
       <module name="proxy-service" target="10" />
+      <module name="reactive-authentication-service" target="10" />
+      <module name="reactive-security-configuration" target="10" />
+      <module name="reactive-security-core" target="10" />
       <module name="security-core" target="10" />
     </bytecodeTargetLevel>
   </component>
@@ -55,6 +60,9 @@
       <module name="gestion-documents-service" options="-parameters -Amapstruct.defaultComponentModel=spring" />
       <module name="notification-service" options="-parameters -Amapstruct.defaultComponentModel=spring" />
       <module name="proxy-service" options="-parameters -Amapstruct.defaultComponentModel=spring" />
+      <module name="reactive-authentication-service" options="-parameters -Amapstruct.defaultComponentModel=spring" />
+      <module name="reactive-security-configuration" options="-parameters -Amapstruct.defaultComponentModel=spring" />
+      <module name="reactive-security-core" options="-parameters -Amapstruct.defaultComponentModel=spring" />
       <module name="security-core" options="-parameters -Amapstruct.defaultComponentModel=spring" />
     </option>
   </component>

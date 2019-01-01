@@ -27,6 +27,18 @@
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
+        <!-- WebFlux -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+
+        <!-- Spring mongoDB-->
+       <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
+        </dependency>
+
         <!-- Twilio -->
         <dependency>
             <groupId>com.twilio.sdk</groupId>

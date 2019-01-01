@@ -1,0 +1,97 @@
+## Create User ##
+POST {{authorization-server-uri}}/{{uri-user-create}}
+Content-Type: application/json
+
+< user.json
+
+> {%
+   client.test("create user", function() {
+     var status = response.status;
+     var username = response.body.username;
+     var enabled = response.body.enabled;
+
+     /*assertions*/
+     client.assert(status === 200, "response status is not equal to 200");
+     client.assert(username === "henri", "no property id found");
+     client.assert(enabled === false, "user is enabled");
+   });
+%}
+
+### Login user ###
+
+POST {{authorization-server-uri}}/{{uri-login}}
+Content-Type: application/json
+
+< loginRequest.json
+
+> {%
+  client.test("login", function() {
+      var status = response.status;
+      client.assert(status === 200, "response status is not equal to 200");
+  })
+ %}
+
+
+### Retrieve protected resource ###
+
+GET {{authorization-server-uri}}/{{uri-protected-resource}}
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJVU0VSIl0sInN1YiI6ImhlbnJpIiwiaWF0IjoxNTQ2MzU0NzM4LCJleHAiOjE1NDYzODM1Mzh9.z1dgvMujr_Ly7Qo5zZfrsC7oFOVOwHH4T1mGtDs16nBl59TiBGLv5jeJvVBhKgMpLgUF3tFchJjwnjDOq-o73Q
+
+### Activate User ###
+
+GET {{authorization-server-uri}}/{{uri-user-activate}}/{{id}}
+
+> {%
+   client.test("activate user", function() {
+     var enabled = response.body.enabled;
+     var status = response.status;
+
+     /*assertions*/
+     client.assert(status === 200, "response status is not equal to 200");
+     client.assert(enabled === true, "user is not enbaled");
+   });
+ %}
+
+### Update User ###
+
+PUT {{authorization-server-uri}}/{{uri-user-update}}
+
+< updateUser.json
+
+> {%
+    client.test("update user", function() {
+       var username = response.body.username;
+       var status = response.status;
+
+        /*assertions*/
+       client.assert(status === 200, "response status is not equal to 200");
+    })
+ %}
+
+### Update Password ###
+
+PUT {{authorization-server-uri}}/{{uri-user-update-password}}
+
+< changedPassWordUser.json
+
+> {%
+  client.test("update password", function() {
+    client.assert(status === 200, "response status is not equal to 200");
+  })
+ %}
+
+### Delete User ###
+
+DELETE {{authorization-server-uri}}/{{uri-user-delete}}/{{id}}
+
+> {%
+   client.test("delete user", function() {
+     var status = response.status;
+
+     /*asserrtions*/
+     client.assert(status === 200, "response status is not equal to 200")
+   });
+ %}
+###
+
+

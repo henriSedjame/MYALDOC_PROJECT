@@ -1,3 +1,5 @@
 
-Isquid:S1068"4Remove this unused "exceptionBuilder" private field.(ÅãÓÅ
-Isquid:S1068"5Remove this unused "exceptionMessages" private field.(¶Õğ~
+Ksquid:S1068"5Remove this unused "exceptionMessages" private field.(¶Õğ~
+squid:UselessImportCheck"QRemove this unused import 'org.myaldoc.gestion.documents.service.models.Fichier'.(’åâ¯ùÿÿÿÿ8Œºƒ€-
+Ksquid:S1068"4Remove this unused "exceptionBuilder" private field.(ÅãÓÅ
+hsquid:UselessImportCheck"8Remove this unused import 'reactor.core.publisher.Mono'.(²îöØÿÿÿÿÿ8Œºƒ€-

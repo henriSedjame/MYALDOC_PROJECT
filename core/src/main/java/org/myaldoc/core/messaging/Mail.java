@@ -2,7 +2,6 @@ package org.myaldoc.core.messaging;
 
 import lombok.*;
 
-import javax.validation.constraints.Email;
 import java.time.LocalDate;
 
 @Getter
@@ -13,7 +12,6 @@ import java.time.LocalDate;
 public class Mail {
 
   private String subject;
-  @Email
   private String sentToEmail;
   private String sentToName;
   private LocalDate sentDate;

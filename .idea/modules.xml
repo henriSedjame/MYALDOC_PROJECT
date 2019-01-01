@@ -3,13 +3,15 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MYALDOC_PROJECT.iml" filepath="$PROJECT_DIR$/MYALDOC_PROJECT.iml" />
-      <module fileurl="file://$PROJECT_DIR$/authentication-service/authentication-service.iml" filepath="$PROJECT_DIR$/authentication-service/authentication-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/configuration-service/configuration-service.iml" filepath="$PROJECT_DIR$/configuration-service/configuration-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka-service/eureka-service.iml" filepath="$PROJECT_DIR$/eureka-service/eureka-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/gestion-documents-service/gestion-documents-service.iml" filepath="$PROJECT_DIR$/gestion-documents-service/gestion-documents-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/notification-service/notification-service.iml" filepath="$PROJECT_DIR$/notification-service/notification-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/proxy-service/proxy-service.iml" filepath="$PROJECT_DIR$/proxy-service/proxy-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/reactive-authentication-service/reactive-authentication-service.iml" filepath="$PROJECT_DIR$/reactive-authentication-service/reactive-authentication-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/reactive-security-configuration/reactive-security-configuration.iml" filepath="$PROJECT_DIR$/reactive-security-configuration/reactive-security-configuration.iml" />
+      <module fileurl="file://$PROJECT_DIR$/reactive-security-core/reactive-security-core.iml" filepath="$PROJECT_DIR$/reactive-security-core/reactive-security-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/security-core/security-core.iml" filepath="$PROJECT_DIR$/security-core/security-core.iml" />
     </modules>
   </component>
