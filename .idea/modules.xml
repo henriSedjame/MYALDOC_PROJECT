@@ -10,8 +10,9 @@
       <module fileurl="file://$PROJECT_DIR$/notification-service/notification-service.iml" filepath="$PROJECT_DIR$/notification-service/notification-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/proxy-service/proxy-service.iml" filepath="$PROJECT_DIR$/proxy-service/proxy-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/reactive-authentication-service/reactive-authentication-service.iml" filepath="$PROJECT_DIR$/reactive-authentication-service/reactive-authentication-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/reactive-security-configuration/reactive-security-configuration.iml" filepath="$PROJECT_DIR$/reactive-security-configuration/reactive-security-configuration.iml" />
+      <module fileurl="file://$PROJECT_DIR$/reactive-security-auth-server-configuration/reactive-security-auth-server-configuration.iml" filepath="$PROJECT_DIR$/reactive-security-auth-server-configuration/reactive-security-auth-server-configuration.iml" />
       <module fileurl="file://$PROJECT_DIR$/reactive-security-core/reactive-security-core.iml" filepath="$PROJECT_DIR$/reactive-security-core/reactive-security-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/reactive-security-resource-server-configuration/reactive-security-resource-server-configuration.iml" filepath="$PROJECT_DIR$/reactive-security-resource-server-configuration/reactive-security-resource-server-configuration.iml" />
       <module fileurl="file://$PROJECT_DIR$/security-core/security-core.iml" filepath="$PROJECT_DIR$/security-core/security-core.iml" />
     </modules>
   </component>

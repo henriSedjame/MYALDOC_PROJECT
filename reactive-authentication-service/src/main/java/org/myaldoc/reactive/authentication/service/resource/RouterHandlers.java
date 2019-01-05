@@ -2,11 +2,13 @@ package org.myaldoc.reactive.authentication.service.resource;
 
 import org.myaldoc.reactive.authentication.service.endpoints.AuthRequest;
 import org.myaldoc.reactive.authentication.service.endpoints.AuthResponse;
+import org.myaldoc.reactive.security.auth.server.configuration.security.ReactiveAuthServerAuthenticationManager;
 import org.myaldoc.reactive.security.core.jwt.JwtUtils;
 import org.myaldoc.reactive.security.core.models.User;
 import org.myaldoc.reactive.security.core.services.ConnectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
@@ -30,6 +32,9 @@ public class RouterHandlers {
 
     @Autowired
     private JwtUtils jwtUtils;
+
+    @Autowired
+    ReactiveAuthServerAuthenticationManager authenticationManager;
 
     //********************************************************************************************************************
     // METHODES
@@ -86,6 +91,20 @@ public class RouterHandlers {
         final String id = request.pathVariable("id");
         return this.connectionService.activateUser(id)
                 .flatMap(user -> ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).body(Mono.just(user), User.class))
+                .onErrorResume(RouterHandlers::handleError);
+    }
+
+    Mono<ServerResponse> handleRetrieveUser(ServerRequest request){
+        final String username = request.pathVariable("username");
+        return this.connectionService.retrieveUser(username)
+                .flatMap(user -> ServerResponse.ok().body(Mono.just(user), User.class))
+                .onErrorResume(RouterHandlers::handleError);
+
+    }
+
+    Mono<ServerResponse> handleAutenticate(ServerRequest request){
+        return request.bodyToMono(Authentication.class)
+                .flatMap(authentication -> ServerResponse.ok().body(this.authenticationManager.authenticate(authentication), Authentication.class))
                 .onErrorResume(RouterHandlers::handleError);
     }
 

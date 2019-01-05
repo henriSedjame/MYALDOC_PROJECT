@@ -92,7 +92,7 @@
     <orderEntry type="library" name="Maven: com.rabbitmq:http-client:2.1.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.integration:spring-integration-amqp:5.1.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-stream-reactive:2.1.0.M3" level="project" />
-    <orderEntry type="module" module-name="reactive-security-configuration" />
+    <orderEntry type="module" module-name="reactive-security-auth-server-configuration" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter-config:2.1.0.M1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter:2.1.0.M1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-context:2.1.0.M1" level="project" />

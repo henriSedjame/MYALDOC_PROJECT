@@ -35,7 +35,7 @@ Content-Type: application/json
 ### Retrieve protected resource ###
 
 GET {{authorization-server-uri}}/{{uri-protected-resource}}
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJVU0VSIl0sInN1YiI6ImhlbnJpIiwiaWF0IjoxNTQ2MzU0NzM4LCJleHAiOjE1NDYzODM1Mzh9.z1dgvMujr_Ly7Qo5zZfrsC7oFOVOwHH4T1mGtDs16nBl59TiBGLv5jeJvVBhKgMpLgUF3tFchJjwnjDOq-o73Q
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJVU0VSIl0sInN1YiI6ImhlbnJpIiwiaWF0IjoxNTQ2Njg4NjkzLCJleHAiOjE1NDY3MTc0OTN9.x_NkP0-8wsBkW5wwPbuvUlLds0EzGETL2Zl2CMrh-JAroFn2V8XQYRHyz79csnYwVm1A3O8RL2elQvQvvnGI2Q
 
 ### Activate User ###
 
@@ -76,7 +76,8 @@ PUT {{authorization-server-uri}}/{{uri-user-update-password}}
 
 > {%
   client.test("update password", function() {
-    client.assert(status === 200, "response status is not equal to 200");
+      var status = response.status;
+      client.assert(status === 200, "response status is not equal to 200");
   })
  %}
 

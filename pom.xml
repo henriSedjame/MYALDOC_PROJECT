@@ -5,7 +5,6 @@
     <modules>
         <module>configuration-service</module>
         <module>eureka-service</module>
-        <module>authentication-service</module>
         <module>notification-service</module>
         <module>proxy-service</module>
         <module>core</module>
@@ -13,7 +12,8 @@
         <module>security-core</module>
         <module>reactive-authentication-service</module>
         <module>reactive-security-core</module>
-        <module>reactive-security-configuration</module>
+        <module>reactive-security-auth-server-configuration</module>
+        <module>reactive-security-resource-server-configuration</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

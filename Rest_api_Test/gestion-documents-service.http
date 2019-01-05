@@ -1,0 +1,4 @@
+GET {{gestion-documents-uri}}/fichier/5c278eee51fef83df0d0d982
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJVU0VSIl0sInN1YiI6ImhlbnJpIiwiaWF0IjoxNTQ2NjkyMDAyLCJleHAiOjE1NDY3MjA4MDJ9.z1xgZK9FEW-LoRseMhHAUdenzCUcutjwLfbqDFhWrkIdDOdcnlaN76UPqdODD6m_xSFL1TRYmWvhF0pKsKsCNg
+
+###

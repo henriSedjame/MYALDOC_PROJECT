@@ -28,7 +28,7 @@
         </dependency>
         <dependency>
             <groupId>org.myaldoc.project</groupId>
-            <artifactId>reactive-security-configuration</artifactId>
+            <artifactId>reactive-security-auth-server-configuration</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 

@@ -10,12 +10,14 @@ import lombok.NoArgsConstructor;
  * @Class purposes : .......
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class ApiRoutesUtils {
+class ApiRoutesUtils {
 
-    public static final String USER_UPDATE = "/user/update";
-    public static final String LOGIN = "/login";
-    public static final String USER_CREATE = "/user/create";
-    public static final String USER_ACTIVATE_ID = "/user/activate/{id}";
-    public static final String USER_DELETE_ID = "/user/delete/{id}";
-    public static final String USER_UPDATE_PASSWORD = "/user/updatePassword";
+     static final String USER_UPDATE = "/user/update";
+     static final String LOGIN = "/login";
+     static final String USER_CREATE = "/user/create";
+     static final String USER_RETRIEVE = "/user/retrieve/{username}";
+     static final String USER_ACTIVATE_ID = "/user/activate/{id}";
+     static final String USER_DELETE_ID = "/user/delete/{id}";
+     static final String USER_UPDATE_PASSWORD = "/user/updatePassword";
+     static final String AUTHENTICATE = "/user/authenticate";
 }

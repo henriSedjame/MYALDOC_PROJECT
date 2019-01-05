@@ -1,6 +1,6 @@
 package org.myaldoc.reactive.authentication.service;
 
-import org.myaldoc.reactive.security.configuration.annotations.EnableReactiveSecurity;
+import org.myaldoc.reactive.security.auth.server.configuration.annotations.EnableReactiveAuthServerSecurity;
 import org.myaldoc.reactive.security.core.models.Role;
 import org.myaldoc.reactive.security.core.repositories.RoleRepository;
 import org.myaldoc.reactive.security.core.repositories.UserRepository;
@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Profile;
 import java.util.stream.Stream;
 
 @SpringBootApplication
-@EnableReactiveSecurity
+@EnableReactiveAuthServerSecurity
 public class ReactiveAuthenticationServiceApplication {
 
     public static void main(String[] args) {

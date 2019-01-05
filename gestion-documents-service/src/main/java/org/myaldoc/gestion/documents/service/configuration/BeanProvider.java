@@ -5,6 +5,7 @@ import org.myaldoc.gestion.documents.service.exceptions.GestionDocumentException
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.request.RequestContextListener;
+import org.springframework.web.reactive.function.client.WebClient;
 
 /**
  * @Project MYALDOC
@@ -21,7 +22,7 @@ public class BeanProvider {
     }
 
     @Bean
-    RequestContextListener requestContextListener() {
-        return new RequestContextListener();
+    WebClient webClient(){
+        return WebClient.create();
     }
 }

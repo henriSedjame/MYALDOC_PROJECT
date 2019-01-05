@@ -17,4 +17,5 @@ public class AuthBeansProvider {
     BCryptPasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
+
 }
