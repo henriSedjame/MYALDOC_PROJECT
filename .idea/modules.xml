@@ -13,7 +13,6 @@
       <module fileurl="file://$PROJECT_DIR$/reactive-security-auth-server-configuration/reactive-security-auth-server-configuration.iml" filepath="$PROJECT_DIR$/reactive-security-auth-server-configuration/reactive-security-auth-server-configuration.iml" />
       <module fileurl="file://$PROJECT_DIR$/reactive-security-core/reactive-security-core.iml" filepath="$PROJECT_DIR$/reactive-security-core/reactive-security-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/reactive-security-resource-server-configuration/reactive-security-resource-server-configuration.iml" filepath="$PROJECT_DIR$/reactive-security-resource-server-configuration/reactive-security-resource-server-configuration.iml" />
-      <module fileurl="file://$PROJECT_DIR$/security-core/security-core.iml" filepath="$PROJECT_DIR$/security-core/security-core.iml" />
     </modules>
   </component>
 </project>

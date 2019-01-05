@@ -102,12 +102,6 @@ public class RouterHandlers {
 
     }
 
-    Mono<ServerResponse> handleAutenticate(ServerRequest request){
-        return request.bodyToMono(Authentication.class)
-                .flatMap(authentication -> ServerResponse.ok().body(this.authenticationManager.authenticate(authentication), Authentication.class))
-                .onErrorResume(RouterHandlers::handleError);
-    }
-
     //********************************************************************************************************************
     // METHODES PRIVATE
     //********************************************************************************************************************

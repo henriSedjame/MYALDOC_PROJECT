@@ -9,7 +9,6 @@
         <module>proxy-service</module>
         <module>core</module>
         <module>gestion-documents-service</module>
-        <module>security-core</module>
         <module>reactive-authentication-service</module>
         <module>reactive-security-core</module>
         <module>reactive-security-auth-server-configuration</module>
@@ -56,24 +55,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
-
-        <!-- WebFlux -->
-        <!--<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
-        </dependency>-->
-
-        <!-- Web -->
-        <!--<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>-->
-
-        <!-- Spring mongoDB-->
-        <!--<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
-        </dependency>-->
 
         <!-- Lombok -->
         <dependency>

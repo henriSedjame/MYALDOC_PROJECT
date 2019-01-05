@@ -33,7 +33,6 @@
         <module name="reactive-security-auth-server-configuration" />
         <module name="reactive-security-core" />
         <module name="reactive-security-resource-server-configuration" />
-        <module name="security-core" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

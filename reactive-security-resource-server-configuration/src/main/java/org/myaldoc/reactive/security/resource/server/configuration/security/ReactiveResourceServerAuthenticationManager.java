@@ -5,6 +5,7 @@ import org.myaldoc.reactive.security.core.jwt.JwtUtils;
 import org.myaldoc.reactive.security.core.models.User;
 import org.myaldoc.reactive.security.core.services.impl.MyaldocReactiveUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -26,13 +27,40 @@ import java.util.stream.Collectors;
 @Component
 public class ReactiveResourceServerAuthenticationManager implements ReactiveAuthenticationManager {
 
+    //********************************************************************************************************************
+    // CONSTANTES
+    //********************************************************************************************************************
+
+    private static final String MYALDOC_AUTH_USER_RETRIEVE_URI = "myaldoc.auth.userRetrieveUri";
+    private static final String AUTH_CONFIG_MISSING_ERROR_MSG = "UserRetrieve uri is missing, " +
+                                                                "please consider to configure " +
+                                                                "\"myaldoc.auth.userRetrieveUri = \" " +
+                                                                "in your properties file";
+
+    //********************************************************************************************************************
+    // ATTRIBUTS
+    //********************************************************************************************************************
+
     @Autowired
     WebClient webClient;
     @Autowired
     private JwtUtils jwtUtils;
+    @Autowired
+    Environment environment;
+
+    //********************************************************************************************************************
+    // METHODES
+    //********************************************************************************************************************
 
     @Override
     public Mono<Authentication> authenticate(Authentication authentication) {
+
+        String userRetrieveUri = environment.getProperty(MYALDOC_AUTH_USER_RETRIEVE_URI);
+
+        if (Objects.isNull(userRetrieveUri))
+            return Mono.error(new Exception(AUTH_CONFIG_MISSING_ERROR_MSG));
+        else if(! userRetrieveUri.endsWith("/"))
+            userRetrieveUri = userRetrieveUri + "/";
 
         final String token = authentication.getCredentials().toString();
 
@@ -45,7 +73,7 @@ public class ReactiveResourceServerAuthenticationManager implements ReactiveAuth
         if (Objects.isNull(username)) return Mono.error(new JwtException("Username not found in token"));
 
         return webClient.get()
-                .uri("http://localhost:9000/user/retrieve/" + username)
+                .uri(userRetrieveUri + username)
                 .retrieve()
                 .bodyToMono(User.class)
                 .switchIfEmpty(Mono.defer(() -> Mono.error(new BadCredentialsException("Invalid Credentials"))))

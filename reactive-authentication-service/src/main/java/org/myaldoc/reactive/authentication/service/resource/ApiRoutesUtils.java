@@ -19,5 +19,4 @@ class ApiRoutesUtils {
      static final String USER_ACTIVATE_ID = "/user/activate/{id}";
      static final String USER_DELETE_ID = "/user/delete/{id}";
      static final String USER_UPDATE_PASSWORD = "/user/updatePassword";
-     static final String AUTHENTICATE = "/user/authenticate";
 }

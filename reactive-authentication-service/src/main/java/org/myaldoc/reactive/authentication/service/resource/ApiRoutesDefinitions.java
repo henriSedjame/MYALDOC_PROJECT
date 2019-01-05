@@ -29,7 +29,6 @@ public class ApiRoutesDefinitions {
                 .andRoute(DELETE(USER_DELETE_ID), handlers::handleDeleteUser)
                 .andRoute(PUT(USER_UPDATE).and(accept(MediaType.APPLICATION_JSON)), handlers::handleUpdateUser)
                 .andRoute(PUT(USER_UPDATE_PASSWORD).and(accept(MediaType.APPLICATION_JSON)), handlers::handleUpdatePassword)
-                .andRoute(POST(AUTHENTICATE), handlers::handleAutenticate)
                 .andRoute(GET("/test"), serverRequest -> ServerResponse.ok().body(Mono.just("Hello world.. Authorization server works fine!!!"), String.class));
     }
 }
