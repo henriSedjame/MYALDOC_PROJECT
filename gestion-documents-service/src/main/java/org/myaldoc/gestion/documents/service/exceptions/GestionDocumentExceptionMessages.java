@@ -19,4 +19,8 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties("error.messages")
 public class GestionDocumentExceptionMessages {
     private String saveFileError;
+    private String saveFileNull;
+    private String fileIdNull;
+    private String retrieveFileError;
+    private String deleteFileError;
 }

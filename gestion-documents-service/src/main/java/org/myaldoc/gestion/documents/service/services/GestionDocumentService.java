@@ -1,5 +1,6 @@
 package org.myaldoc.gestion.documents.service.services;
 
+import org.myaldoc.gestion.documents.service.exceptions.GestionDocumentException;
 import org.myaldoc.gestion.documents.service.models.Fichier;
 import org.springframework.http.codec.multipart.FilePart;
 import reactor.core.publisher.Mono;
@@ -20,13 +21,20 @@ public interface GestionDocumentService {
      * @param file
      * @return
      */
-    Mono<Fichier> saveFichier(FilePart file) throws IOException;
+    Mono<Fichier> saveFichier(FilePart file) throws GestionDocumentException;
 
     /**
      * RECUPERER FICHIER
      * @param fichierId
      * @return
      */
-    Mono<Fichier> recupererFichier(String fichierId);
+    Mono<Fichier> recupererFichier(String fichierId) throws GestionDocumentException;
+
+    /**
+     * SUPPRESSION D'UN FICHIER
+     * @param fichierId
+     * @return
+     */
+    Mono<Void> deleteFichier(String fichierId) throws GestionDocumentException;
 
 }
