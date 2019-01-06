@@ -2,13 +2,13 @@ package org.myaldoc.reactive.authentication.service.resource;
 
 import org.myaldoc.reactive.authentication.service.endpoints.AuthRequest;
 import org.myaldoc.reactive.authentication.service.endpoints.AuthResponse;
-import org.myaldoc.reactive.security.auth.server.configuration.security.ReactiveAuthServerAuthenticationManager;
 import org.myaldoc.reactive.security.core.jwt.JwtUtils;
 import org.myaldoc.reactive.security.core.models.User;
 import org.myaldoc.reactive.security.core.services.ConnectionService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.security.core.Authentication;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
@@ -27,14 +27,23 @@ public class RouterHandlers {
     // ATTRIBUTS
     //********************************************************************************************************************
 
-    @Autowired
-    private ConnectionService connectionService;
+    private final ConnectionService connectionService;
 
-    @Autowired
-    private JwtUtils jwtUtils;
+    private final JwtUtils jwtUtils;
 
-    @Autowired
-    ReactiveAuthServerAuthenticationManager authenticationManager;
+    private final BCryptPasswordEncoder passwordEncoder;
+
+    //********************************************************************************************************************
+    // CONSTRUCTEUR
+    //********************************************************************************************************************
+
+    public RouterHandlers(ConnectionService connectionService,
+                          JwtUtils jwtUtils,
+                          BCryptPasswordEncoder passwordEncoder) {
+        this.connectionService = connectionService;
+        this.jwtUtils = jwtUtils;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     //********************************************************************************************************************
     // METHODES
@@ -43,9 +52,13 @@ public class RouterHandlers {
     Mono<ServerResponse> handleLogin(ServerRequest request){
         return request.bodyToMono(AuthRequest.class)
                 .flatMap(authRequest -> this.connectionService.retrieveUser(authRequest.getUsername())
-                                            .flatMap(user -> ServerResponse.ok()
-                                                    .body(Mono.just(new AuthResponse(jwtUtils.generateToken(user))), AuthResponse.class)
-                                            ).onErrorResume(RouterHandlers::handleError)
+                                            .flatMap(user -> {
+                                                final boolean matches = passwordEncoder.matches(authRequest.getPassword(), user.getPassword());
+                                                if (matches) return ServerResponse.ok()
+                                                                .body(Mono.just(new AuthResponse(jwtUtils.generateToken(user))), AuthResponse.class);
+                                                else
+                                                    return handleError(new BadCredentialsException("Identifiants incorrects"));
+                                            }).onErrorResume(RouterHandlers::handleError)
                 );
     }
 
@@ -107,6 +120,6 @@ public class RouterHandlers {
     //********************************************************************************************************************
 
     private static Mono<? extends ServerResponse> handleError(Throwable error) {
-        return ServerResponse.ok().contentType(MediaType.TEXT_PLAIN).syncBody(error.getMessage());
+        return ServerResponse.status(HttpStatus.INTERNAL_SERVER_ERROR).contentType(MediaType.APPLICATION_JSON).syncBody(error);
     }
 }

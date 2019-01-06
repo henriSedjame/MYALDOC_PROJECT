@@ -2,15 +2,15 @@
 
 _**SECURITE :**_
 ######
-La sécurité de l'application est assurée par un serveur d'authentification et d'autorisation.
-######
-Ce serveur est basée sur une implémentation de OAuth2 en mode SSO ( Single Sign On).
-#####
-Il permet l'ensregistrement des identifiants de connexion des utilisateurs et la génération d'un jeton d'authentification.
-#####
-Les différents micro-services de l'application sont eux-aussi sécurisés.
-####
-L'annotation _@MyaldocOAuth2ResourceServer_ permet d'importer la configuration des adapteurs de sécurité du micro-service.
+Le socle de la sécurité de l'application s'articule autour de trois modules: 
+* _**Reactive Security Core**_ :  
+Ce module contient les couches MODEL et DAO pour le stockages des identifiants de connexion. Ce module contient aussi la logique de génération du Json Web Token (JWT)
+
+* _**Reactive-Security-Auth-Server-Configuration**_ :  
+Ce module contient la configuration pour la sécurité du server d'authorization. Il offre une annotation : _@EnableReactiveAuthServerSecurity_ qui permet d'importer toute la configuration.
+
+* _**Reactive-Security-Resource-Server-Configuration**_ :   
+Ce module la configuration pour la sécurité pour les différents microServices. Il offre une annotation : _@EnableReactiveResourceServerSecurity_ qui permet d'importer toute la configuration.
 
 ##
 

@@ -8,6 +8,7 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/api-swagger/pom.xml" />
         <option value="$PROJECT_DIR$/authentication-service/pom.xml" />
         <option value="$PROJECT_DIR$/configuration-service/reactive-security-resource-server-configuration/pom.xml" />
         <option value="$PROJECT_DIR$/security-core/pom.xml" />

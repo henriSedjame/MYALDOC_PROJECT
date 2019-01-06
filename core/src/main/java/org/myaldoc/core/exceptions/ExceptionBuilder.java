@@ -99,7 +99,7 @@ public abstract class ExceptionBuilder<T extends Exception> {
    *
    * @return
    */
-  public T buildException(String message, Throwable t) {
+  public T  buildException(String message, Throwable t) {
 
     T exception = null;
 

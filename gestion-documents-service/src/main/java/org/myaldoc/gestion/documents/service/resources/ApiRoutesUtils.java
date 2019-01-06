@@ -13,4 +13,5 @@ import lombok.NoArgsConstructor;
 class ApiRoutesUtils {
     static final String FICHIER_SAVE = "/fichier/save";
     static final String FICHIER_RETRIEVE = "/fichier/retrieve/{id}";
+    static final String FICHIER_DELETE = "/fichier/delete/{id}";
 }

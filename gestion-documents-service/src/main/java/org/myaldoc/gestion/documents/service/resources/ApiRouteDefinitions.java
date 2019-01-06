@@ -21,6 +21,7 @@ public class ApiRouteDefinitions {
     @Bean
     RouterFunction<?> routes(RouterHandlers handlers){
         return route(POST(FICHIER_SAVE).and(accept(MediaType.ALL)), handlers::handleSaveFile)
-                .andRoute(GET(FICHIER_RETRIEVE), handlers::handleRetrieveFichier);
+                .andRoute(GET(FICHIER_RETRIEVE), handlers::handleRetrieveFile)
+                .andRoute(DELETE(FICHIER_DELETE), handlers::handleDeleteFile);
     }
 }

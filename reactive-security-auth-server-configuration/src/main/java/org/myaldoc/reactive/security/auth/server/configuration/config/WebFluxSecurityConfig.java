@@ -9,6 +9,9 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.web.server.SecurityWebFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.reactive.CorsConfigurationSource;
+import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 
 /**
  * @Project REACTIVE_SECURITY_JWT
@@ -30,6 +33,8 @@ public class WebFluxSecurityConfig {
     public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http){
         return http
                 .csrf().disable()
+                .cors().configurationSource(source())
+                .and()
                 .formLogin().disable()
                 .authenticationManager(authenticationManager)
                 .securityContextRepository(securityContextRepository)
@@ -38,5 +43,22 @@ public class WebFluxSecurityConfig {
                     .pathMatchers("/login", "/user/**").permitAll()
                     .anyExchange().authenticated()
                 .and().build();
+    }
+
+    public CorsConfigurationSource source() {
+        final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        final CorsConfiguration config = new CorsConfiguration();
+        config.setAllowCredentials(true);
+        config.addAllowedOrigin("*");
+        config.addAllowedHeader("*");
+        config.addAllowedMethod("OPTIONS");
+        config.addAllowedMethod("HEAD");
+        config.addAllowedMethod("GET");
+        config.addAllowedMethod("PUT");
+        config.addAllowedMethod("POST");
+        config.addAllowedMethod("DELETE");
+        config.addAllowedMethod("PATCH");
+        source.registerCorsConfiguration("/**", config);
+        return source;
     }
 }
